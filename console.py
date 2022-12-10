@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         args_array = args.split(' ')
-        #print(args_array)
+        print("args_array: {}".format(args_array))
         args_dict = dict()
         if args_array[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
