@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 This script starts a Flask web application:
 this web application is listening on 0.0.0.0, port 5000
 """
@@ -20,7 +20,6 @@ def hello():
 def hbnb():
     """Display “HBNB”"""
     return 'HBNB'
-    
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
