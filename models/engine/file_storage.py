@@ -46,8 +46,8 @@ class FileStorage:
         if it’s inside - if obj is equal to None
         the method should not do anything"""
         if obj:
-            del(FileStorage.__objects[obj.to_dict()['__class__']
-                + '.' + obj.id])
+            del(FileStorage.__objects[obj.to_dict()['__class__'] +
+                '.' + obj.id])
 
     def reload(self):
         """Loads storage dictionary from file"""
