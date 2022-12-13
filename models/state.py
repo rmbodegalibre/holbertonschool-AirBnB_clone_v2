@@ -23,5 +23,5 @@ class State(BaseModel, Base if HBNB_TYPE_STORAGE == 'db' else object):
             from models import storage
 
             city_objects = storage.all(City)
-            return ([city for city in city_objects.values() if
-                city.state_id == self.id])
+            return ([city for city in city_objects.values() if city.state_id ==
+                    self.id])
