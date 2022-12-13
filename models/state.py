@@ -7,11 +7,12 @@ import os
 
 HBNB_TYPE_STORAGE = os.getenv('HBNB_TYPE_STORAGE')
 
+
 class State(BaseModel, Base if HBNB_TYPE_STORAGE == 'db' else object):
     """ State class """
     if HBNB_TYPE_STORAGE == 'db':
         __tablename__ = 'states'
-        name = Column(String(128), nullable = False)
+        name = Column(String(128), nullable=False)
         cities = relationship("City", backref="state", cascade="delete")
     else:
         name = ""
@@ -22,4 +23,5 @@ class State(BaseModel, Base if HBNB_TYPE_STORAGE == 'db' else object):
             from models import storage
 
             city_objects = storage.all(City)
-            return [city for city in city_objects.values() if city.state_id == self.id]
+            return [city for city in city_objects.values() if
+                city.state_id == self.id]
