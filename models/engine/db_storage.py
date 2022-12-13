@@ -17,8 +17,8 @@ class DBStorage:
         pwd = os.getenv('HBNB_MYSQL_PWD')
         host = os.getenv('HBNB_MYSQL_HOST')
         db = os.getenv('HBNB_MYSQL_DB')
-        self.__engine = create_engine("mysql+mysqldb://{:s}:{:s}@{:s}/{:s}".
-        format(user, pwd, host, db), pool_pre_ping=True)
+        self.__engine = (create_engine("mysql+mysqldb://{:s}:{:s}@{:s}/{:s}"
+        	.format(user, pwd, host, db), pool_pre_ping=True))
         metadata = MetaData()
         if os.getenv('HBNB_ENV') == 'test':
             metadata.drop_all()
@@ -68,8 +68,8 @@ class DBStorage:
         from models.review import Review
         from sqlalchemy.orm import sessionmaker, scoped_session
         Base.metadata.create_all(self.__engine)
-        session_factory = sessionmaker(bind=self.__engine, expire_on_commit=
-                                        False)
+        session_factory = (sessionmaker(bind=self.__engine, expire_on_commit=
+										False))
         Session = scoped_session(session_factory)
         self.__session = Session()
 
