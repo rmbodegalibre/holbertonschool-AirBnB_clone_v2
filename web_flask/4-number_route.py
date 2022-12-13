@@ -45,7 +45,7 @@ def p_is_fun(text='is cool'):
 def number(n):
     """
     /number/<n>: display “n is a number” only if n is an integer
-    It uses the option strict_slashes=False in your route definition 
+    It uses the option strict_slashes=False in your route definition
     """
     return '{} is a number'.format(n) if int(n) else abort(404)
 
