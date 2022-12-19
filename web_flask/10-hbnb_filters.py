@@ -12,6 +12,7 @@ app = Flask(__name__)
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def all_states():
+    """ This function loads all cities of states"""
     states = models.storage.all(State).values()
     cities = models.storage.all(City).values()
     amenities = models.storage.all(Amenity).values()
